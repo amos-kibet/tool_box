@@ -20,7 +20,7 @@ defmodule ToolBoxWeb.Router do
   scope "/", ToolBoxWeb do
     pipe_through :browser
 
-    resources "/snap", SnapshotsController, except: [:edit, :update]
+    # resources "/snap", SnapshotsController, except: [:edit, :update]
     resources "/", BoxItemController
   end
 

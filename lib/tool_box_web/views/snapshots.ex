@@ -1,3 +1,3 @@
-defmodule ToolBoxWeb.SnapshotsView do
-  use ToolBoxWeb, :view
-end
+# defmodule ToolBoxWeb.SnapshotsView do
+#   use ToolBoxWeb, :view
+# end

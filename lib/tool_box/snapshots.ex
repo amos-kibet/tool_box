@@ -1,104 +1,104 @@
-defmodule ToolBox.Snapshots do
-  @moduledoc """
-  The Gallery context.
-  """
+# defmodule ToolBox.Snapshots do
+#   @moduledoc """
+#   The Gallery context.
+#   """
 
-  import Ecto.Query, warn: false
-  alias ToolBox.Repo
+#   import Ecto.Query, warn: false
+#   alias ToolBox.Repo
 
-  alias ToolBox.Snapshots.Snapshot
+#   alias ToolBox.Snapshots.Snapshot
 
-  @doc """
-  Returns the list of Snapshots.
+#   @doc """
+#   Returns the list of Snapshots.
 
-  ## Examples
+#   ## Examples
 
-      iex> list_snapshots()
-      [%Snapshot{}, ...]
+#       iex> list_snapshots()
+#       [%Snapshot{}, ...]
 
-  """
-  def list_snapshots do
-    Repo.all(Snapshot)
-  end
+#   """
+#   def list_snapshots do
+#     Repo.all(Snapshot)
+#   end
 
-  @doc """
-  Gets a single Snapshot.
+#   @doc """
+#   Gets a single Snapshot.
 
-  Raises `Ecto.NoResultsError` if the Snapshot does not exist.
+#   Raises `Ecto.NoResultsError` if the Snapshot does not exist.
 
-  ## Examples
+#   ## Examples
 
-      iex> get_Snapshot!(123)
-      %Snapshot{}
+#       iex> get_Snapshot!(123)
+#       %Snapshot{}
 
-      iex> get_Snapshot!(456)
-      ** (Ecto.NoResultsError)
+#       iex> get_Snapshot!(456)
+#       ** (Ecto.NoResultsError)
 
-  """
-  def get_snapshot!(id), do: Repo.get!(Snapshot, id)
+#   """
+#   def get_snapshot!(id), do: Repo.get!(Snapshot, id)
 
-  @doc """
-  Creates a Snapshot.
+#   @doc """
+#   Creates a Snapshot.
 
-  ## Examples
+#   ## Examples
 
-      iex> create_Snapshot(%{field: value})
-      {:ok, %Snapshot{}}
+#       iex> create_Snapshot(%{field: value})
+#       {:ok, %Snapshot{}}
 
-      iex> create_Snapshot(%{field: bad_value})
-      {:error, %Ecto.Changeset{}}
+#       iex> create_Snapshot(%{field: bad_value})
+#       {:error, %Ecto.Changeset{}}
 
-  """
-  def create_snapshot(attrs \\ %{}) do
-    %Snapshot{}
-    |> Snapshot.changeset(attrs)
-    |> Repo.insert()
-  end
+#   """
+#   def create_snapshot(attrs \\ %{}) do
+#     %Snapshot{}
+#     |> Snapshot.changeset(attrs)
+#     |> Repo.insert()
+#   end
 
-  @doc """
-  Updates a Snapshot.
+#   @doc """
+#   Updates a Snapshot.
 
-  ## Examples
+#   ## Examples
 
-      iex> update_Snapshot(Snapshot, %{field: new_value})
-      {:ok, %Snapshot{}}
+#       iex> update_Snapshot(Snapshot, %{field: new_value})
+#       {:ok, %Snapshot{}}
 
-      iex> update_Snapshot(Snapshot, %{field: bad_value})
-      {:error, %Ecto.Changeset{}}
+#       iex> update_Snapshot(Snapshot, %{field: bad_value})
+#       {:error, %Ecto.Changeset{}}
 
-  """
-  def update_snapshot(%Snapshot{} = snapshot, attrs) do
-    snapshot
-    |> Snapshot.changeset(attrs)
-    |> Repo.update()
-  end
+#   """
+#   def update_snapshot(%Snapshot{} = snapshot, attrs) do
+#     snapshot
+#     |> Snapshot.changeset(attrs)
+#     |> Repo.update()
+#   end
 
-  @doc """
-  Deletes a Snapshot.
+#   @doc """
+#   Deletes a Snapshot.
 
-  ## Examples
+#   ## Examples
 
-      iex> delete_Snapshot(Snapshot)
-      {:ok, %Snapshot{}}
+#       iex> delete_Snapshot(Snapshot)
+#       {:ok, %Snapshot{}}
 
-      iex> delete_Snapshot(Snapshot)
-      {:error, %Ecto.Changeset{}}
+#       iex> delete_Snapshot(Snapshot)
+#       {:error, %Ecto.Changeset{}}
 
-  """
-  def delete_snapshot(%Snapshot{} = snapshot) do
-    Repo.delete(snapshot)
-  end
+#   """
+#   def delete_snapshot(%Snapshot{} = snapshot) do
+#     Repo.delete(snapshot)
+#   end
 
-  @doc """
-  Returns an `%Ecto.Changeset{}` for tracking Snapshot changes.
+#   @doc """
+#   Returns an `%Ecto.Changeset{}` for tracking Snapshot changes.
 
-  ## Examples
+#   ## Examples
 
-      iex> change_Snapshot(Snapshot)
-      %Ecto.Changeset{data: %Snapshot{}}
+#       iex> change_Snapshot(Snapshot)
+#       %Ecto.Changeset{data: %Snapshot{}}
 
-  """
-  def change_snapshot(%Snapshot{} = snapshot, attrs \\ %{}) do
-    Snapshot.changeset(snapshot, attrs)
-  end
-end
+#   """
+#   def change_snapshot(%Snapshot{} = snapshot, attrs \\ %{}) do
+#     Snapshot.changeset(snapshot, attrs)
+#   end
+# end
