@@ -1,4 +1,6 @@
 defmodule ToolBox.LiveBox.LiveBoxItem do
+  @moduledoc false
+
   use Ecto.Schema
   import Ecto.Changeset
 
