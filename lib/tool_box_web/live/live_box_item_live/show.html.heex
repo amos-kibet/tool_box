@@ -1,0 +1,36 @@
+<h1>Show Live box item</h1>
+
+<%= if @live_action in [:edit] do %>
+  <.modal return_to={Routes.live_box_item_show_path(@socket, :show, @live_box_item)}>
+    <.live_component
+      module={ToolBoxWeb.LiveBoxItemLive.FormComponent}
+      id={@live_box_item.id}
+      title={@page_title}
+      action={@live_action}
+      live_box_item={@live_box_item}
+      return_to={Routes.live_box_item_show_path(@socket, :show, @live_box_item)}
+    />
+  </.modal>
+<% end %>
+
+<ul>
+
+  <li>
+    <strong>Short description:</strong>
+    <%= @live_box_item.short_description %>
+  </li>
+
+  <li>
+    <strong>Snapshot:</strong>
+    <%= @live_box_item.snapshot %>
+  </li>
+
+  <li>
+    <strong>Url:</strong>
+    <%= @live_box_item.url %>
+  </li>
+
+</ul>
+
+<span><%= live_patch "Edit", to: Routes.live_box_item_show_path(@socket, :edit, @live_box_item), class: "button" %></span> |
+<span><%= live_redirect "Back", to: Routes.live_box_item_index_path(@socket, :index) %></span>

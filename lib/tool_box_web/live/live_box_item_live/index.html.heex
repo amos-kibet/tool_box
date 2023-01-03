@@ -1,0 +1,43 @@
+<h1>Listing Box items</h1>
+
+<%= if @live_action in [:new, :edit] do %>
+  <.modal return_to={Routes.live_box_item_index_path(@socket, :index)}>
+    <.live_component
+      module={ToolBoxWeb.LiveBoxItemLive.FormComponent}
+      id={@live_box_item.id || :new}
+      title={@page_title}
+      action={@live_action}
+      live_box_item={@live_box_item}
+      return_to={Routes.live_box_item_index_path(@socket, :index)}
+    />
+  </.modal>
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Short description</th>
+      <th>Snapshot</th>
+      <th>Url</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody id="box_items">
+    <%= for live_box_item <- @box_items do %>
+      <tr id={"live_box_item-#{live_box_item.id}"}>
+        <td><%= live_box_item.short_description %></td>
+        <td><%= live_box_item.snapshot %></td>
+        <td><%= live_box_item.url %></td>
+
+        <td>
+          <span><%= live_redirect "Show", to: Routes.live_box_item_show_path(@socket, :show, live_box_item) %></span>
+          <span><%= live_patch "Edit", to: Routes.live_box_item_index_path(@socket, :edit, live_box_item) %></span>
+          <span><%= link "Delete", to: "#", phx_click: "delete", phx_value_id: live_box_item.id, data: [confirm: "Are you sure?"] %></span>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<span><%= live_patch "New Live box item", to: Routes.live_box_item_index_path(@socket, :new) %></span>
