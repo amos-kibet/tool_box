@@ -69,6 +69,29 @@ config :ex_aws,
     region: "us-east-1"
   ]
 
+# git hooks configuration
+if Mix.env() == :dev do
+  config :git_hooks,
+    auto_install: true,
+    verbose: true,
+    hooks: [
+      pre_commit: [
+        tasks: [
+          {:mix_task, :format, ["--check-formatted"]},
+          {:mix_task, :credo, ["--strict"]}
+        ]
+      ],
+      pre_push: [
+        tasks: [
+          {:mix_task, :format, ["--check-formatted"]},
+          {:mix_task, :credo, ["--strict"]},
+          {:mix_task, :dialyzer},
+          {:mix_task, :test, ["--color"]}
+        ]
+      ]
+    ]
+end
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{config_env()}.exs"
