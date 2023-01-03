@@ -4,9 +4,9 @@ defmodule ToolBox.Accounts do
   """
 
   import Ecto.Query, warn: false
-  alias ToolBox.Repo
 
-  alias ToolBox.Accounts.{User, UserToken, UserNotifier}
+  alias ToolBox.Accounts.{User, UserNotifier, UserToken}
+  alias ToolBox.Repo
 
   @doc """
   Lists all users
