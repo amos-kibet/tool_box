@@ -21,7 +21,7 @@ defmodule ToolBoxWeb.Router do
     pipe_through :browser
 
     # resources "/snap", SnapshotsController, except: [:edit, :update]
-    resources "/", BoxItemController
+    resources "/box", BoxItemController
   end
 
   # Other scopes may use custom stacks.
@@ -75,6 +75,15 @@ defmodule ToolBoxWeb.Router do
 
   scope "/", ToolBoxWeb do
     pipe_through [:browser, :require_authenticated_user]
+
+    live_session :default, on_mount: ToolBoxWeb.UserAuthLive do
+      live "/", LiveBoxItemLive.Index, :index
+      live "/new", LiveBoxItemLive.Index, :new
+      live "/:id/edit", LiveBoxItemLive.Index, :edit
+
+      live "/:id", LiveBoxItemLive.Show, :show
+      live "/:id/show/edit", LiveBoxItemLive.Show, :edit
+    end
 
     get "/users/settings", UserSettingsController, :edit
     put "/users/settings", UserSettingsController, :update
