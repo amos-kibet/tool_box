@@ -7,7 +7,7 @@ defmodule ToolBoxWeb.LiveBoxItemLive.Index do
   @impl true
   def mount(_params, _session, socket) do
     {:ok, assign(socket, :box_items, list_box_items())}
-    |> IO.inspect(label: "[MOUNT SOCKET")
+    # |> IO.inspect(label: "[MOUNT SOCKET")
   end
 
   @impl true

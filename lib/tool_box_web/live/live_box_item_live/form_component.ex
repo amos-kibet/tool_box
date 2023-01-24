@@ -20,7 +20,8 @@ defmodule ToolBoxWeb.LiveBoxItemLive.FormComponent do
        auto_upload: true,
        progress: &handle_progress/3
      )}
-    |> IO.inspect(label: "AFTER ALLOW_UPLOAD SOCKET")
+
+    # |> IO.inspect(label: "AFTER ALLOW_UPLOAD SOCKET")
   end
 
   @impl true
@@ -37,7 +38,7 @@ defmodule ToolBoxWeb.LiveBoxItemLive.FormComponent do
     save_live_box_item(socket, socket.assigns.action, live_box_item_params)
   end
 
-  def handle_event("cancel-upload", %{"ref" => ref}, socket)do
+  def handle_event("cancel-upload", %{"ref" => ref}, socket) do
     {:noreply, cancel_upload(socket, :snapshot, ref)}
   end
 
