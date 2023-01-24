@@ -16,7 +16,7 @@ defmodule ToolBox.Box.BoxItem do
   end
 
   @doc false
-  # TODO: refactor this changeset; define snapshot changeset & call it here
+  # @TODO: refactor this changeset; define snapshot changeset & call it here
   def changeset(box_item, attrs) do
     box_item
     |> Map.update(:uuid, Ecto.UUID.generate(), fn val -> val || Ecto.UUID.generate() end)

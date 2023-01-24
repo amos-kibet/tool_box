@@ -1,0 +1,37 @@
+           box_item_path  GET     /box                                   ToolBoxWeb.BoxItemController :index
+           box_item_path  GET     /box/:id/edit                          ToolBoxWeb.BoxItemController :edit
+           box_item_path  GET     /box/new                               ToolBoxWeb.BoxItemController :new
+           box_item_path  GET     /box/:id                               ToolBoxWeb.BoxItemController :show
+           box_item_path  POST    /box                                   ToolBoxWeb.BoxItemController :create
+           box_item_path  PATCH   /box/:id                               ToolBoxWeb.BoxItemController :update
+                          PUT     /box/:id                               ToolBoxWeb.BoxItemController :update
+           box_item_path  DELETE  /box/:id                               ToolBoxWeb.BoxItemController :delete
+     live_dashboard_path  GET     /dashboard                             Phoenix.LiveDashboard.PageLive :home
+     live_dashboard_path  GET     /dashboard/:page                       Phoenix.LiveDashboard.PageLive :page
+     live_dashboard_path  GET     /dashboard/:node/:page                 Phoenix.LiveDashboard.PageLive :page
+                          *       /dev/mailbox                           Plug.Swoosh.MailboxPreview []
+  user_registration_path  GET     /users/register                        ToolBoxWeb.UserRegistrationController :new
+  user_registration_path  POST    /users/register                        ToolBoxWeb.UserRegistrationController :create
+       user_session_path  GET     /users/log_in                          ToolBoxWeb.UserSessionController :new
+       user_session_path  POST    /users/log_in                          ToolBoxWeb.UserSessionController :create
+user_reset_password_path  GET     /users/reset_password                  ToolBoxWeb.UserResetPasswordController :new
+user_reset_password_path  POST    /users/reset_password                  ToolBoxWeb.UserResetPasswordController :create
+user_reset_password_path  GET     /users/reset_password/:token           ToolBoxWeb.UserResetPasswordController :edit
+user_reset_password_path  PUT     /users/reset_password/:token           ToolBoxWeb.UserResetPasswordController :update
+live_box_item_index_path  GET     /                                      ToolBoxWeb.LiveBoxItemLive.Index :index
+live_box_item_index_path  GET     /new                                   ToolBoxWeb.LiveBoxItemLive.Index :new
+live_box_item_index_path  GET     /:id/edit                              ToolBoxWeb.LiveBoxItemLive.Index :edit
+ live_box_item_show_path  GET     /:id                                   ToolBoxWeb.LiveBoxItemLive.Show :show
+ live_box_item_show_path  GET     /:id/show/edit                         ToolBoxWeb.LiveBoxItemLive.Show :edit
+      user_settings_path  GET     /users/settings                        ToolBoxWeb.UserSettingsController :edit
+      user_settings_path  PUT     /users/settings                        ToolBoxWeb.UserSettingsController :update
+      user_settings_path  GET     /users/settings/confirm_email/:token   ToolBoxWeb.UserSettingsController :confirm_email
+       user_session_path  DELETE  /users/log_out                         ToolBoxWeb.UserSessionController :delete
+  user_confirmation_path  GET     /users/confirm                         ToolBoxWeb.UserConfirmationController :new
+  user_confirmation_path  POST    /users/confirm                         ToolBoxWeb.UserConfirmationController :create
+  user_confirmation_path  GET     /users/confirm/:token                  ToolBoxWeb.UserConfirmationController :edit
+  user_confirmation_path  POST    /users/confirm/:token                  ToolBoxWeb.UserConfirmationController :update
+               websocket  WS      /live/websocket                        Phoenix.LiveView.Socket
+                longpoll  GET     /live/longpoll                         Phoenix.LiveView.Socket
+                longpoll  POST    /live/longpoll                         Phoenix.LiveView.Socket
+

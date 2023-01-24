@@ -24,8 +24,14 @@ defmodule ToolBoxWeb.LiveBoxItemLiveTest do
   describe "Index" do
     setup [:create_live_box_item]
 
+    # TODO: add flag to test this file alone
     test "lists all box_items", %{conn: conn, live_box_item: live_box_item} do
-      {:ok, _index_live, html} = live(conn, Routes.live_box_item_index_path(conn, :index))
+      {:ok, _index_live, html} =
+        live(
+          conn,
+          Routes.live_box_item_index_path(conn, :index)
+          |> IO.inspect(label: "[TEST FILE INSPECTION]")
+        )
 
       assert html =~ "Listing Box items"
       assert html =~ live_box_item.short_description

@@ -8,19 +8,25 @@
     phx-target={@myself}
     phx-change="validate"
     phx-submit="save">
-  
+
     <%= label f, :short_description %>
     <%= text_input f, :short_description %>
     <%= error_tag f, :short_description %>
-  
-    <%= label f, :snapshot %>
-    <%= text_input f, :snapshot %>
-    <%= error_tag f, :snapshot %>
-  
+
     <%= label f, :url %>
     <%= text_input f, :url %>
     <%= error_tag f, :url %>
-  
+
+    <div phx-drop-target={ @uploads.snapshot.ref }>
+    <%= live_file_input @uploads.snapshot %>
+
+    <%= for entry <- @uploads.snapshot.entries do %>
+      <%= live_img_preview entry %>
+
+      <button phx-click="cancel-upload" phx-value-ref={entry.ref} >&times;</button>
+    <% end %>
+    </div>
+
     <div>
       <%= submit "Save", phx_disable_with: "Saving..." %>
     </div>

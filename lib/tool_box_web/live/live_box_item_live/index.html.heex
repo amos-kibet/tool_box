@@ -27,7 +27,17 @@
     <%= for live_box_item <- @box_items do %>
       <tr id={"live_box_item-#{live_box_item.id}"}>
         <td><%= live_box_item.short_description %></td>
-        <td><%= live_box_item.snapshot %></td>
+        <td>
+        <!--
+          <img
+          alt="snapshot" width="200" height="200"
+          src={
+          Routes.static_path(
+          @socket,
+          (live_box_item.snapshot || ~s[/images/default-thumbnail.jpg]))
+          } >
+         -->
+        </td>
         <td><%= live_box_item.url %></td>
 
         <td>

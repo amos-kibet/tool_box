@@ -13,16 +13,22 @@
   </.modal>
 <% end %>
 
+<!--
+<article class="column">
+  <img
+  alt="snapshot" width="200" height="200"
+  src={
+  Routes.static_path(
+  @socket,
+  (@live_box_item.snapshot || ~s[/images/default-thumbnail.jpg]))
+  } >
+</article>
+-->
 <ul>
 
   <li>
     <strong>Short description:</strong>
     <%= @live_box_item.short_description %>
-  </li>
-
-  <li>
-    <strong>Snapshot:</strong>
-    <%= @live_box_item.snapshot %>
   </li>
 
   <li>
